@@ -1,0 +1,474 @@
+def disp1():
+    print("done")
+
+
+
+disp1()
+______________________________________________________________________________
+
+def disp1(myname):
+    print(myname)
+
+
+
+disp1('kiran')
+_________________________________________________________________________________
+
+def absolute_value(num):
+	"""This function returns the absolute
+	value of the entered number"""
+
+	if num >= 0:
+		return num
+	else:
+		return -num
+
+# Output: 2
+print(absolute_value(2))
+
+# Output: 4
+print(absolute_value(-4))
+___________________________________________________
+types of arguments:
+______________________
+
+required arguments:
+
+def add(a,b):
+   print(a+b)
+   
+add(10,20)   
+
+
+defaultarguments:
+def add(a="gm"):
+   print(a)
+   
+add()   
+
+
+keyword arguments:
+When we call a function with some values, these values get assigned to the arguments according to their position.Python allows functions to be called using keyword arguments. When we call functions in this way, the order (position) of the arguments can be changed.
+
+def f1(name,msg):
+ print(name,msg)
+
+f1(msg="haidevops",name="kiran")
+
+
+arbitary arguments:
+we can pass no of argumments
+
+def tool(*names):
+ print(names)
+
+ for n in names:
+  print(n)
+tool("ant","maven","docker","puppet")
+_____________________________________________________________________________________
+global variables:
+a=100
+def f1():
+    print(a)
+    
+def f2():
+    print(a)
+
+f1()
+f2()
+_____________________________________________________________________________________-  
+local variables:
+def f1():
+    a=100
+    print(a)
+    
+def f2():
+    a=200
+    print(a)
+
+f1()
+f2()
+___________________________________________________________________________________
+Lambda Functions:
+In Python, anonymous function is a function that is defined without a name.
+
+While normal functions are defined using the def keyword, in Python anonymous functions are defined using the lambda keyword.
+
+
+A lambda function has the following syntax.
+
+Syntax of Lambda Function:
+lambda arguments: expression
+
+note:Lambda functions can have any number of arguments but only one expression. The expression is evaluated and returned. Lambda functions can be used wherever function objects are required.
+
+
+double = lambda x: x * 2
+
+print(double(5))
+
+my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+
+new_list = list(filter(lambda x: (x%2 == 0) , my_list))
+
+print(new_list)
+_________________________________________________________________________________
+Modules in python:
+__________________________
+ a module is a file consisting of Python code. A module can define functions, classes and variables. A module can also include runnable code
+
+
+how to view the help for modules:
+
+help('modules')
+
+>sqrt(16)
+>import math
+math.sqrt(16)
+from math import sqrt
+sqrt(16)
+_______________________________________________________________________________________
+
+
+classes and objects:
+
+class student:
+    name='hello'
+    def func(self):
+        print('python')
+obj=student()
+print(obj.name)
+obj.func()
+ _____________________________________________________________________________
+
+static and non static variables:
+
+class student:
+    name='hello'
+    def func(self):
+        print('python')
+obj=student()
+print(obj.name)--------------nonstatic variables
+obj.func()
+print(student.name)------------------------static variables
+student.func()---------------error
+_______________________________________________________________________________
+
+use of self:
+
+non static variables of one class  can access within the sameclass by using self
+class me:
+    def m1(self):
+         self.i=100
+         self.j=200
+    def display(self):
+     print(self.i)
+     print(self.j)
+
+obj=me()
+obj.m1()
+obj.display()
+
+____________________________________________________________________________________
+__init__  --is the syntax for the constructor
+constructors in python:
+default constructors:
+class home:
+ def __init__(self):
+   print("welcome to constructor")
+
+
+obj=home()        
+_________________________________________________________________________________
+
+
+
+class person:
+    def __init__(self,id):
+
+        self.id=id
+
+        print("class constructor is created")
+
+    def __del__(self):
+
+        print(self.id,"our class objects is destroyed")
+
+    def setfullname(self,fname,lname):
+          self.fname=fname
+          self.lname=lname
+
+    def printfullname(self):
+           print(self.fname)
+           print(self.lname)
+
+p=person(5)
+p.setfullname("hello","me")
+p.printfullname()
+p.__del__()
+
+______________________________________________________________________
+
+parametarized constructors:
+
+ def __init__(self,i,j):
+     self.i=i
+     self.j=j
+     print("welcome to constructor")
+
+
+obj=home(10,20)
+print(obj.i)
+print(obj.j)
+______________________________________________________________________________
+
+
+default attributes or namesapce:
+class demo:
+    a=1000
+def __init__(self):
+         self.b=2000
+
+print(demo.a)
+print(demo.__name__)
+print(demo.__module__)
+print(demo.__dict__)
+      
+___________________________________________________________________________
+
+
+Inheritance:
+It refers to defining a new class with little or no modification to an existing class. The new class is called derived (or child) class and the one from which it inherits is called the base (or parent) class.
+
+
+
+syntax:
+
+class BaseClass:
+  Body of base class
+class DerivedClass(BaseClass):
+  Body of derived class
+
+
+single inheritance:
+_____________________
+class x:
+    def m1(self):
+        print("i am in m1 of x")
+
+class y(x):
+
+    def m2(self):
+
+        print("i am in m2 of y")
+
+
+y1=y()
+y1.m1()
+y1.m2()
+        
+
+Multilevel inheritance:
+_________________________
+class x:
+    def m1(self):
+        print("i am in m1 of x")
+
+class y(x):
+
+    def m2(self):
+
+        print("i am in m2 of y")
+
+class z(y):
+
+    def m3(self):
+
+        print("i am in m3 of z")
+        
+z1=z()
+z1.m1()
+z1.m2()
+z1.m3()
+        
+Hierarchical inheritance:
+______________________________
+
+the concept of inheriting prop from once class into multiple classes is known as hierarchical inheritance
+
+
+class x:
+    def m1(self):
+        print("i am in m1 of x")
+
+class y(x):
+
+    def m2(self):
+
+        print("i am in m2 of y")
+
+class z(x):
+
+    def m3(self):
+
+        print("i am in m3 of z")
+
+y1=y()
+y1.m1()
+y1.m2()
+
+        
+z1=z()
+z1.m1()
+z1.m3()
+        
+___________________________________________________________________________________
+
+inherting properties from multiple classes in to single class at a time 
+multiple inheritance:
+__________________________
+
+class x:
+    def m1(self):
+        print("i am in m1 of x")
+
+class y:
+
+    def m2(self):
+
+        print("i am in m2 of y")
+
+class z(x,y):
+
+    def m3(self):
+
+        print("i am in m3 of z")
+
+
+z1=z()
+z1.m1()
+z1.m2()
+z1.m3()
+
+y1=y()
+y1.m2()
+x1=x()
+x1.m1()
+_______________________________________________________________________________
+        
+polymorphism:
+_____________
+
+class x:
+  def m1(self,a):
+    print("m1")
+    print(a)
+
+  def m1(self ,a,b):
+    print("m1 with 2args")
+    print(a)
+    print(b)
+
+x1=x()
+x1.m1(100,200)
+x1.m1(100)
+note: doesnot support method overloading
+__________________________________________________________________________________
+method overriding in python:
+________________________________
+
+
+case1: if both parent and child classes are having same method , python gives
+       importance to child class
+
+class parent:
+
+    def mymethod(self):
+        print("calling parent method")
+
+class child(parent):
+    def mymethod(self):
+
+        print("calling child method")
+
+
+c=child()
+c.mymethod()
+p=parent()
+p.mymehtod()
+
+how to overcome :
+
+class parent(object):
+
+    def mymethod(self):
+        print("calling parent method")
+
+class child(parent):
+    def mymethod(self):
+
+        print("calling child method")
+        super(child,self).mymethod()
+        
+
+c=child()
+c.mymethod()
+p=parent()
+p.mymehtod()
+
+_____________________________________________________________________________
+
+abstraction:
+________________
+
+__   is the operator used in abstraction to hide the data memebers.
+class sample:
+    __p=1000
+    def m1(self):
+     print("method m1")
+
+obj=sample()
+obj.m1()
+print(obj.p)
+___________________________________________________________________________________
+
+Exception handling :
+
+print("hello")
+i=int(input("enter no"))
+j=int(input("enter no"))
+k=i/j
+print(k)
+print("bye")
+_______________________________________________________________________________
+
+
+
+
+try:
+    num=float(input("enter no"))
+except(ValueError):
+    print("not an number")
+
+______________________________________________________________________________
+
+
+try:
+    print("enter a numerator")
+    number=int(input())
+    print("enter the denominators")
+    deno=int(input())
+    ans=number/deno
+    print(ans)
+except(ZeroDivisonError):
+    print("cant divide y zero")
+    print("enter the denominators")
+    deno=int(input())
+    ans=number/deno
+    print(ans)
+____________________________________________________________________________________
+
+
+
+
+
